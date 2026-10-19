@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRCA Showroom - Kontakt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <button class="hamburger" aria-label="Meny">&#9776;</button>
+    <ul class="menu">
+      <li><a href="index.html">Hem</a></li>
+      <li class="has-submenu">
+        <a href="galleri.html">Galleri</a>
+        <ul>
+          <li><a href="galleri.html#malning">Målning</a></li>
+          <li><a href="galleri.html#keramik">Keramik</a></li>
+          <li><a href="galleri.html#bok">Bok</a></li>
+        </ul>
+      </li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+<h1>Kontakt</h1>
+
+<h2>Maila:</h2>
+<p>
+  irca.art@bahnhof.se
+</p>    
+
+<h2>Besöka:</h2>
+<p>
+  Vi finns på Åsättravägen 4 i Brottby (Vallentuna kommun)
+</p>
+
+<h2>Öppettider:</h2>
+<p>
+  Efter överenskommelse. Skicka ett mail till irca.art@bahnhof.se<br>
+  <br>
+  <strong>Välkomna, <br>
+  Sandra</strong>
+</p>
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.menu');
+  const submenuParents = document.querySelectorAll('.has-submenu');
+
+  // Öppna/stäng hamburgermenyn
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+
+  // Hantera klick på "Galleri" på mobil – inte undermenylänkar
+  submenuParents.forEach(item => {
+    const link = item.querySelector('a');
+
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        // Om undermenyn inte redan är aktiv – öppna den och stoppa klick
+        if (!item.classList.contains('active')) {
+          e.preventDefault(); // förhindra navigation till galleri.html
+          item.classList.add('active');
+        }
+        // Om redan aktiv – tillåt klicket att gå vidare (t.ex. till galleri.html)
+        // eller gör inget
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f3f1ef;
+  color: #3a2e2a;
+}
+
+/* Grundinställningar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: #d6d1cc;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+nav ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem; /* valfri mellanrum mellan menyval */
+  align-items: center;
+}
+
+nav ul.menu li {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+nav ul.menu li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+nav ul.menu li a:hover {
+  background-color: #ddd;
+}
+nav a {
+  text-decoration: none;
+  color: #3a2e2a;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #7c5a44;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  letter-spacing: 2px;
+}
+
+h2 {
+  margin-top: 3rem;
+  text-align: center;
+  font-weight: normal;
+  color: #7c5a44;
+}
+
+p {
+  text-align: center;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.nav-logo {
+  color: #3a2e2a;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: #3a2e2a;
+  text-decoration: none;
+  padding: 15px 10px;
+  display: block;
+}
+
+.nav-links a:hover {
+  background-color: #a99d91;
+}
+
+/* Dropdown */
+.nav-links li ul {
+  display: none;
+  position: absolute;
+  background-color: #c7beb6;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 1000;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links li:hover > ul {
+  display: flex;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.image-row {
+  display: flex;
+  gap: 1.5rem;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ccc;
+  align-items: center;
+}
+
+.image-row img {
+  width: 150px;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.image-row img:hover {
+  transform: scale(1.03);
+}
+
+.art-image {
+  flex: 1 1 150px;
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.art-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+}
+
+.text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+
+.lightbox-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 90%;
+  margin-top: 1rem;
+}
+
+.lightbox button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Meny och undermeny med varmare färger */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #b8afa6;
+}
+
+.menu > li {
+  position: relative;
+}
+
+.menu a {
+  display: block;
+  padding: 15px 20px;
+  color: #3a2e2a;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #a99d91;
+}
+
+/* Undermeny */
+.menu li ul {
+  display: none;
+  position: absolute;
+  background-color: #c7beb6;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  z-index: 1000;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu li:hover ul {
+  display: block;
+}
+
+.menu li ul li a {
+  padding: 10px 15px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #3a2e2a;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+/* Mobilanpassning */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #b8afa6;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    width: 100%;
+  }
+
+  .menu li ul {
+    position: static;
+    display: none;
+    background-color: #c7beb6;
+  }
+
+  .menu li.active > ul {
+    display: block;
+  }
+
+  .menu li a {
+    width: 100%;
+  }
+}
+
+#toTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: #a99d91;  /* varm, synlig färg */
+  color: white;               /* vit pil */
+  border: none;
+  outline: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#toTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#toTopBtn:hover {
+  background-color: #7c5a44;
+}

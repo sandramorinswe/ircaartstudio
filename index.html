@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRCA Showroom - Hem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <button class="hamburger" aria-label="Meny">&#9776;</button>
+    <ul class="menu">
+      <li><a href="index.html">Hem</a></li>
+      <li class="has-submenu">
+        <a href="galleri.html">Galleri</a>
+        <ul>
+          <li><a href="galleri.html#malning">Målning</a></li>
+          <li><a href="galleri.html#keramik">Keramik</a></li>
+          <li><a href="galleri.html#bok">Bok</a></li>
+        </ul>
+      </li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+  <main>
+  <h1>IRCA Showroom</h1>
+  <div style="text-align: center; margin: 2rem 0;">
+    <img src="bilder/irenecanel.jpg" alt="Målning av konstnären" style="max-width: 10%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);" />
+  </div>
+  <h2>Irene Canel - Ett liv i färg, smärta och styrka</h2>
+
+<p>mamma bar minnen från krig och fattigdom,<br>
+från uppbrott, flyttar och arbete i barndomen.<br>
+<br>
+I konsten möttes hennes inre mörker och råhet,<br>
+med styrka, ljus och skönhet.<br>
+<br>
+Varje verk bär hennes kamp, hennes livskraft.<br>
+Dramatiska, ärliga, ibland svåra – men alltid levande.<br>
+<br>
+Ett år efter hennes bortgång har jag öppnat ett showroom<br>
+ – en blygsam utställningslokal där hennes verk får ta plats.<br>
+<br>
+Det här är mitt sätt att hedra henne. <br>
+Att låta hennes berättelse fortsätta tala – genom konsten och hantverket.<br>
+<br>
+Alla konstverk är till salu – för dig som vill <br>
+bära vidare något av hennes berättelse hem till ditt eget. <br>
+Hälften kommer jag skänka till Barncancerfonden.
+<br>
+För den som vill förstå mer av livet bakom konsten <br>
+finns även hennes självbiografiska bok att köpa.<br>
+<br>
+Öppet <strong>efter överenskommelse.</strong><br>
+<br>
+Varmt välkommen!<i><br>
+Sandra</i><br><br></p>
+</main>
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.menu');
+  const submenuParents = document.querySelectorAll('.has-submenu');
+
+  // Öppna/stäng hamburgermenyn
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+
+  // Hantera klick på "Galleri" på mobil – inte undermenylänkar
+  submenuParents.forEach(item => {
+    const link = item.querySelector('a');
+
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        // Om undermenyn inte redan är aktiv – öppna den och stoppa klick
+        if (!item.classList.contains('active')) {
+          e.preventDefault(); // förhindra navigation till galleri.html
+          item.classList.add('active');
+        }
+        // Om redan aktiv – tillåt klicket att gå vidare (t.ex. till galleri.html)
+        // eller gör inget
+      }
+    });
+  });
+</script>
+</body>
+</html>
